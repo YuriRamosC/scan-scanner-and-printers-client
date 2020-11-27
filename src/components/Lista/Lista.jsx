@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 class Lista extends Component {
 
-    constructor() {
-        super();
-        this.state = { impressoras: [] };
+    constructor(props) {
+        super(props);
         this._novasImpressoras = this._novasImpressoras.bind(this);
+        this.state = { impressoras: [] };
     }
     componentDidMount() {
         this.props.impressoras.inscrever(this._novasImpressoras);
@@ -20,11 +20,11 @@ class Lista extends Component {
 
     render() {
         return (
-            <main class="conteudoPrincipal">
-                <div class="container-fluid">
+            <main className="conteudoPrincipal">
+                <div className="container-fluid">
                     <h1>Impressoras</h1>
-                    <table id="impressoras" class="table table-striped table-hover table-responsive-lg">
-                        <thead class="thead-light">
+                    <table id="impressoras" className="table table-striped table-hover table-responsive-lg">
+                        <thead className="thead-light">
                             <tr>
                                 <th>Empresa</th>
                                 <th>Fabricante</th>

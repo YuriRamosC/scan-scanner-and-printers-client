@@ -1,4 +1,4 @@
-import axios from 'axios';
+import api from '../api/api'
 
 export default class Impressoras {
     constructor() {
@@ -18,8 +18,16 @@ export default class Impressoras {
 
     consumirImpressoras() {
         console.log('aqui');
-        axios.get('192.168.100.108:3000/api-impressoras')
-            .then(res => this.impressoras = res.impressoras);
+        api.get('api-impressoras')
+            .catch(err =>{
+                console.log('Erro:');
+                console.log(err);
+                console.log(err.response);
+                console.log(err.response.data);
+                console.log(err.response.status);
+                console.log(err.response.headers)
+            })
+            .then(res => console.log(res));
         this.notificar();
     }
 }

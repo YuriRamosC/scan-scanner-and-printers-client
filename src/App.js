@@ -5,6 +5,7 @@ import './assets/css/App.css';
 import Menu from './components/Menu'
 import Lista from './components/Lista'
 import Impressoras from './data/impressoras';
+import Base from './components/Base'
 
 
 class App extends Component {
@@ -16,7 +17,7 @@ class App extends Component {
     return (
       <section>
         <Menu consumirImpressoras={this.impressoras.consumirImpressoras.bind(this.impressoras)}/>
-        <Lista impressoras={this.impressoras}/>
+        <Base />
       </section>
     )
   };
