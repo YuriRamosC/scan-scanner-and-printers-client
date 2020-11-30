@@ -35,7 +35,7 @@ export default class Impressoras {
                 console.log('Erro:');
                 console.log(err.response);
             })
-            .then(res => this.impressoras = res.data.impressoras)
+            .then(res =>this.impressoras = res.data.impressoras)
             .then(res => this.notificar());
     }
 }

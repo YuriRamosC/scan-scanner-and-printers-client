@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import "./estilo.css";
 class Lista extends Component {
-
     constructor(props) {
         super(props);
         this._novasImpressoras = this._novasImpressoras.bind(this);
@@ -19,13 +18,12 @@ class Lista extends Component {
         console.log(this.state.impressoras);
     }
 
-
-    render() {  
+    render() {
         return (
             <section>
                 <main className="conteudoPrincipal">
                     <div className="container-fluid">
-                        <h1>Impressoras</h1>
+                        <h1>Impressoras {this.state.impressoras.length}</h1>
                         <table id="impressoras" className="table table-striped table-hover table-responsive-lg">
                             <thead className="thead-light">
                                 <tr>
