@@ -12,12 +12,17 @@ class App extends Component {
   constructor() {
     super();
     this.impressoras = new Impressoras();
+    this.navegacao = 0;
   }
+
   render() {
     return (
       <section>
-        <Menu consumirImpressoras={this.impressoras.consumirImpressoras.bind(this.impressoras)}/>
-        <Base />
+        <Menu consumirImpressoras={this.impressoras.consumirImpressoras.bind(this.impressoras)}
+          consumirImpressorasOffline={this.impressoras.consumirImpressorasOffline.bind(this.impressoras)} />
+
+          <Lista impressoras={this.impressoras} />
+
       </section>
     )
   };

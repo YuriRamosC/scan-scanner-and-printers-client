@@ -4,11 +4,11 @@ import Lista from '../Lista';
 class Base extends Component {
     constructor(props){
         super(props);
-        this.state = { }
+        this.state = {pagina:{} }
     }
 
     mostrarLista() {
-        this.setState({ Lista})
+        this.setState({ pagina: Lista})
     }
 
     home(){
@@ -18,7 +18,7 @@ class Base extends Component {
     render() { 
         return (
             <section>
-                
+                {pagina}
             </section>
         );
     }

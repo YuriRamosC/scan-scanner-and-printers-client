@@ -6,7 +6,11 @@ class Menu extends Component {
       this.props.consumirImpressoras();
     }
   }
-
+  _handleOfflines(e) {
+    if(e.type ==='click') {
+      this.props.consumirImpressorasOffline();
+    }
+  }
   render() {
     return (
       <section>
@@ -17,7 +21,7 @@ class Menu extends Component {
             Scan Scanners and Printers</div>
           <div className="nav-items">
             <li><a href="#">Geral</a></li>
-            <li><a href="#">Offlines</a></li>
+            <li><a href="#" onClick={this._handleOfflines.bind(this)}>Offlines</a></li>
             <li><a href="#" onClick={this._handleEventoInput.bind(this)}>Atualizar</a></li>
             <li><a href="#">PrintWayy</a></li>
             <li><a href="#">Monitoramento</a></li>
