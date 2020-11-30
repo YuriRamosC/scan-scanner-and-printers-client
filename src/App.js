@@ -4,6 +4,7 @@ import './assets/css/bootstrap.min.css'
 import './assets/css/App.css';
 import Menu from './components/Menu'
 import Lista from './components/Lista'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Impressoras from './data/impressoras';
 import Base from './components/Base'
 

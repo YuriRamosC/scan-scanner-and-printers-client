@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
 import "./estilo.css";
+import 'font-awesome/css/font-awesome.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 class Menu extends Component {
   _handleEventoInput(e) {
     if (e.type === 'click') {
       this.props.consumirImpressoras();
     }
   }
+  componentDidMount() {
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    const menuBtn = document.querySelector(".menu-icon span");
+    const items = document.querySelector(".nav-items");
+    menuBtn.onclick = () => {
+      items.classList.add("active");
+      menuBtn.classList.add("hide");
+    }
+  }
   _handleOfflines(e) {
-    if(e.type ==='click') {
+    if (e.type === 'click') {
       this.props.consumirImpressorasOffline();
     }
   }
@@ -16,7 +27,8 @@ class Menu extends Component {
       <section>
         <nav className="navbar navbar-collapse menu">
           <div className="menu-icon">
-            <span className="fas fa-bars"></span></div>
+            <span className="fas fa-bars"></span>
+            </div>
           <div className="logo">
             Scan Scanners and Printers</div>
           <div className="nav-items">
@@ -27,7 +39,6 @@ class Menu extends Component {
             <li><a href="#">Monitoramento</a></li>
           </div>
         </nav>
-        
       </section>
     );
   }
