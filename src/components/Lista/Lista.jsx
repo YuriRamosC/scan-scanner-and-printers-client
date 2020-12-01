@@ -4,7 +4,7 @@ class Lista extends Component {
     constructor(props) {
         super(props);
         this._novasImpressoras = this._novasImpressoras.bind(this);
-        this.state = { impressoras: [] };
+        this.state = { impressoras: [], titulo: ''};
     }
     componentDidMount() {
         this.props.impressoras.inscrever(this._novasImpressoras);
@@ -13,9 +13,9 @@ class Lista extends Component {
     componentWillUnmount() {
         this.props.impressoras.desinscrever(this._novasImpressoras);
     }
-    _novasImpressoras(impressoras) {
-        this.setState({ ...this.state, impressoras });
-        console.log(this.state.impressoras);
+    _novasImpressoras(impressoras, titulo) {
+        this.setState({ ...this.state, impressoras: impressoras, titulo: titulo});
+        console.log(titulo);
     }
 
     render() {
@@ -23,7 +23,7 @@ class Lista extends Component {
             <section>
                 <main className="conteudoPrincipal">
                     <div className="container-fluid">
-                        <h1>Impressoras {this.state.impressoras.length}</h1>
+                        <h1>{this.state.titulo} {this.state.impressoras.length}</h1>
                         <table id="impressoras" className="table table-striped table-hover table-responsive-lg">
                             <thead className="thead-light">
                                 <tr>

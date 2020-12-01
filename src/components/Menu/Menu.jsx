@@ -1,11 +1,27 @@
 import React, { Component } from 'react';
 import "./estilo.css";
 import 'font-awesome/css/font-awesome.min.css';
+import STRING_CONSTANTS from '../../data/constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 class Menu extends Component {
-  _handleEventoInput(e) {
+  constructor(props) {
+    super(props);
+  }
+  _handleGeral(e) {
+    if(e.type ==='click') {
+      this.props.mudarTela(STRING_CONSTANTS.GERAL);
+    }
+  }
+  _handleImpressoras(e) {
     if (e.type === 'click') {
       this.props.consumirImpressoras();
+      this.props.mudarTela(STRING_CONSTANTS.LISTA);
+    }
+  }
+  _handleImpressorasOffline(e) {
+    if (e.type === 'click') {
+      this.props.consumirImpressorasOffline();
+      this.props.mudarTela(STRING_CONSTANTS.OFFLINE);
     }
   }
   componentDidMount() {
@@ -15,11 +31,6 @@ class Menu extends Component {
     menuBtn.onclick = () => {
       items.classList.add("active");
       menuBtn.classList.add("hide");
-    }
-  }
-  _handleOfflines(e) {
-    if (e.type === 'click') {
-      this.props.consumirImpressorasOffline();
     }
   }
   render() {
@@ -32,12 +43,13 @@ class Menu extends Component {
           <div className="logo">
             Scan Scanners and Printers</div>
           <div className="nav-items">
-            <li><a href="#">Geral</a></li>
-            <li><a href="#" onClick={this._handleOfflines.bind(this)}>Offlines</a></li>
-            <li><a href="#" onClick={this._handleEventoInput.bind(this)}>Atualizar</a></li>
+            <li><a href="#" onClick={this._handleGeral.bind(this)}>Geral</a></li>
+            <li><a href="#"  onClick={this._handleImpressoras.bind(this)}>Lista</a></li>
+            <li><a href="#" onClick={this._handleImpressorasOffline.bind(this)}>Offlines</a></li>
+            <li><a href="#">Atualizar</a></li>
             <li><a href="#">PrintWayy</a></li>
             <li><a href="#">Monitoramento</a></li>
-          </div>
+          </div>s
         </nav>
       </section>
     );

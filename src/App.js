@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './assets/css/bootstrap.min.css'
 import './assets/css/App.css';
 import Menu from './components/Menu'
+import STRING_CONSTANTS from './data/constants';
 import Lista from './components/Lista'
-import Titulo from './components/Titulo'
 import Impressoras from './data/impressoras';
 
 
@@ -11,17 +11,31 @@ class App extends Component {
   constructor() {
     super();
     this.impressoras = new Impressoras();
-    this.titulos = ['Lista','Offline'];
+    this.state = {tela: ''};
+  }
+  mudarTela(tela) {
+    this.setState({tela: tela});
+  }
+
+  renderizarTela(){
+    console.log('Sim, campeão de Azeroth, eu fui chamado!')
+    if(this.state.tela == STRING_CONSTANTS.LISTA) {
+      return <Lista impressoras ={this.impressoras}/>
+    } else if (this.state.tela == STRING_CONSTANTS.OFFLINE) {
+      return <Lista impressoras ={this.impressoras}/>
+    } else {
+      return <h1>Bem vindo!</h1>
+    }
   }
 
   render() {
     return (
       <section>
         <Menu consumirImpressoras={this.impressoras.consumirImpressoras.bind(this.impressoras)}
-          consumirImpressorasOffline={this.impressoras.consumirImpressorasOffline.bind(this.impressoras)} />
-          
-          <Lista impressoras={this.impressoras} />
-
+          consumirImpressorasOffline={this.impressoras.consumirImpressorasOffline.bind(this.impressoras)} 
+          mudarTela={this.mudarTela.bind(this)}/>
+        {this.renderizarTela()}
+        
       </section>
     )
   };

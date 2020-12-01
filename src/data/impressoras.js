@@ -10,8 +10,8 @@ export default class Impressoras {
         this._observers.push(func);
         console.log('inscreveu');
     }
-    notificar() {
-        this._observers.forEach(func => func(this.impressoras));
+    notificar(titulo) {
+        this._observers.forEach(func => func(this.impressoras, titulo));
 
     }
     desinscrever(func) {
@@ -27,7 +27,7 @@ export default class Impressoras {
                 console.log(err.response);
             })
             .then(res => this.impressoras = res.data.impressoras)
-            .then(res => this.notificar());
+            .then(res => this.notificar('Impressoras'));
     }
     consumirImpressorasOffline() {
         api.get('api-impressoras-offline')
@@ -36,6 +36,6 @@ export default class Impressoras {
                 console.log(err.response);
             })
             .then(res =>this.impressoras = res.data.impressoras)
-            .then(res => this.notificar());
+            .then(res => this.notificar('Impressoras Offline'));
     }
 }
