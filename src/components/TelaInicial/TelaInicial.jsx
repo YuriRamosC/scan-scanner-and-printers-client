@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import Slider from '../Slider';
 class TelaInicial extends Component {
     state = {  }
     render() { 
-        return (  );
+        return (
+            <section>
+                <Slider/>
+            </section>
+        );
     }
 }
  
