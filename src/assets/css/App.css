@@ -118,6 +118,41 @@ nav .logo.space{
   color:#0a0044;
 }
 
-.printwayy-color {
+.navigation-button {
+  text: #fff;
+
+}
+.printwayy-color{
   color: #264d81 !important;
+}
+
+.navigation-button {
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.navigation-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.navigation-button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.navigation-button:hover span {
+  padding-right: 25px;
+}
+
+.navigation-button:hover span:after {
+  opacity: 1;
+  right: 0;
 }

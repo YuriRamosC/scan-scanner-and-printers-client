@@ -28,7 +28,7 @@ class Menu extends Component {
   render() {
     return (
 
-      <Navbar collapseOnSelect expand="lg" className="menu" variant='dark'>
+      <Navbar collapseOnSelect expand="lg" className="menu" variant='dark' text='light' sticky='top'>
         <Navbar.Brand href="#home">Scan Scanners and Printers</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
