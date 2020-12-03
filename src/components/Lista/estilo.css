@@ -2,60 +2,81 @@
     border-left-style: solid;
     border-left-width: 5px;
     border-left-color: pink !important;
+    transition: 2s;
 }
-
+.status_andre:hover {
+    background-color:pink !important;
+  }
 .status_devilPrinter {
     border-left-style: solid;
     border-left-width: 5px;
     border-left-color: rgb(99, 0, 0) !important;
+    transition: 2s;
 }
-
+.status_devilPrinter:hover {
+    background-color: rgb(99, 0, 0) !important;
+    color: white;
+  }
 .status_cantCheck {
     border-left-style: solid;
     border-left-width: 5px;
     border-left-color: red !important;
+    transition: 2s;
 }
-
+.status_cantCheck:hover {
+    background-color: red !important;
+    color: white;
+  }
 .status_noMonitoring {
     border-left-style: solid;
     border-left-width: 5px;
     border-left-color: grey !important;
+    transition: 2s;
 }
+.status_noMonitoring:hover {
+    background-color: grey !important;
+  }
 
 .status_recentlyLost {
     border-left-style: solid;
     border-left-width: 5px;
     border-left-color: rgb(187, 43, 98) !important;
+    transition: 2s;
 }
+.status_recentlyLost:hover {
+    background-color: rgb(187, 43, 98) !important;
+    color: white;
+  }
 
 .status_keven {
     border-left-style: solid;
     border-left-width: 5px;
     border-left-color: orange !important;
+    transition: 2s;
 }
-
+.status_keven:hover {
+    background-color: orange !important;
+    color: white;
+  }
 .status_everythingOk {
     border-left-style: solid;
     border-left-width: 5px;
     border-left-color: green !important;
+    transition: 2s;
 }
+.status_everythingOk:hover {
+    background-color: green !important;
+    color: white;
+  }
+
 .status_recentlyOnline {
     border-left-style: solid;
     border-left-width: 5px;
     border-left-color: blue !important;
+    transition: 2s;
 }
 
-.table tr .tooltip {
-    color: red;
-}
-
-.tooltip:hover:before{
-    border: solid;
-    border-color: #333 transparent;
-    border-width: 6px 6px 0 6px;
-    bottom: 20px;
-    content: "";
-    left: 50%;
-    position: absolute;
-    z-index: 99;
-}
+.status_recentlyOnline:hover {
+    background-color: blue !important;
+    color: white;
+  }
