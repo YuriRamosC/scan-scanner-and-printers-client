@@ -2,10 +2,15 @@
     background-color: #264d81;
 }
 
+.my-footer .card-deck .card {
+    margin: 0px;
+}
+.my-footer .card-deck {
+    margin: 0px;
+}
 .my-footer .card {
     background-color: #264d81;
     text-align: center;
-    padding: 10px;
 }
 
 .my-footer .card .link {
