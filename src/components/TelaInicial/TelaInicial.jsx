@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Slider from '../../containers/Slider';
 import Container from 'react-bootstrap/Container'
 import './estilos.css';
-import Cards from '../../containers/Cards/Cards';
+import Cards from '../../containers/Cards';
 class TelaInicial extends Component {
     state = {}
     render() {

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './assets/css/bootstrap.min.css'
 import './assets/css/App.css';
-import Menu from './components/Menu'
+import Menu from './containers/Menu'
 import STRING_CONSTANTS from './data/constants';
 import Lista from './components/Lista'
 import TelaInicial from './components/TelaInicial'
 import Impressoras from './data/impressoras';
-
+import MyFooter from './containers/MyFooter'
 
 class App extends Component {
   constructor() {
@@ -37,7 +37,7 @@ class App extends Component {
           consumirImpressorasOffline={this.impressoras.consumirImpressorasOffline.bind(this.impressoras)} 
           mudarTela={this.mudarTela.bind(this)}/>
         {this.renderizarTela()}
-        
+        <MyFooter/>
       </section>
     )
   };

@@ -1,0 +1,14 @@
+.my-footer {
+    background-color: #264d81;
+}
+
+.my-footer .card {
+    background-color: #264d81;
+    text-align: center;
+    padding: 10px;
+}
+
+.my-footer .card .link {
+    color: #fff;
+    text-decoration: underline;
+}

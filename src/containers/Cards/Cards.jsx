@@ -7,7 +7,7 @@ class Cards extends Component {
     state = {  }
     render() { 
         return (<CardDeck>
-            <Card bg='dark' text='light'>
+            <Card bg='dark' text='light' className='card-ds'>
                 <Card.Header as="h5">Locações</Card.Header>
                 <Card.Body>
                     <Card.Text>
@@ -20,7 +20,7 @@ class Cards extends Component {
                     </Card.Link>
                 </Card.Footer>
             </Card>
-            <Card bg='success' text='light'>
+            <Card bg='success' text='light' className='card-ds'>
                 <Card.Header as="h5">Materiais para Escritório</Card.Header>
                 <Card.Body>
                     <Card.Text>
@@ -33,7 +33,7 @@ class Cards extends Component {
                     </Card.Link>
                 </Card.Footer>
             </Card>
-            <Card bg='light' text='dark'>
+            <Card bg='light' text='dark' className='card-ds'>
                 <Card.Header as="h5">Papelaria</Card.Header>
                 <Card.Body>
                     <Card.Text>
