@@ -41,14 +41,14 @@ class Lista extends Component {
                         <table id="impressoras" className="table table-striped table-hover table-responsive-lg">
                             <thead className="thead-light">
                                 <tr>
-                                    <th>Empresa</th>
-                                    <th>Fabricante</th>
-                                    <th>Modelo</th>
-                                    <th>Número de Série</th>
-                                    <th>Ponto</th>
-                                    <th>IP da Máquina</th>
-                                    <th>Ultima Comunicação</th>
-                                    <th>Alterar Status</th>
+                                    <th className='printwayy-color'>Empresa</th>
+                                    <th className='printwayy-color'>Fabricante</th>
+                                    <th className='printwayy-color'>Modelo</th>
+                                    <th className='printwayy-color'>Número de Série</th>
+                                    <th className='printwayy-color'>Ponto</th>
+                                    <th className='printwayy-color'>IP da Máquina</th>
+                                    <th className='printwayy-color'>Ultima Comunicação</th>
+                                    <th className='printwayy-color'>Alterar Status</th>
                                 </tr>
                             </thead>
                             <tbody>
