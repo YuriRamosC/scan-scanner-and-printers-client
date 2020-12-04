@@ -15,7 +15,8 @@ class App extends Component {
     this.state = {tela: STRING_CONSTANTS.GERAL};
   }
   mudarTela(tela) {
-    this.setState({tela: tela});
+    this.setState({...this.state, tela: tela});
+    console.log(this.state);
   }
 
   renderizarTela(){
@@ -29,13 +30,19 @@ class App extends Component {
       return <TelaInicial />
     }
   }
-
+ showMessage(message) {
+    if(message === STRING_CONSTANTS.UPDATED) {
+      console.log('As impressoras foram atualizadas!');
+    }
+  }
   render() {
     return (
       <section>
         <Menu consumirImpressoras={this.impressoras.consumirImpressoras.bind(this.impressoras)}
           consumirImpressorasOffline={this.impressoras.consumirImpressorasOffline.bind(this.impressoras)} 
-          mudarTela={this.mudarTela.bind(this)}/>
+          atualizarImpressoras={this.impressoras.atualizarImpressoras.bind(this.impressoras)}
+          mudarTela={this.mudarTela.bind(this)}
+          showMessage={this.showMessage.bind(this)}/>
         {this.renderizarTela()}
         <MyFooter/>
       </section>

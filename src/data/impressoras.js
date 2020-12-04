@@ -1,4 +1,4 @@
-import api from '../api/api'
+import api from '../api/api';
 
 export default class Impressoras {
     constructor() {
@@ -12,15 +12,14 @@ export default class Impressoras {
     }
     notificar(titulo) {
         this._observers.forEach(func => func(this.impressoras, titulo));
-
     }
+
     desinscrever(func) {
         this._observers = this._observers.filter(f => f !== func);
         console.log('desinscreveu');
     }
 
     consumirImpressoras() {
-        console.log('aqui');
         api.get('api-impressoras')
             .catch(err => {
                 console.log('Erro:');
@@ -37,5 +36,16 @@ export default class Impressoras {
             })
             .then(res =>this.impressoras = res.data.impressoras)
             .then(res => this.notificar('Impressoras Offline'));
+    }
+    atualizarImpressoras(){
+        api.get('impressoras-printwayy')
+        .catch(err => {
+            console.log('Erro:');
+            console.log(err.response);
+        })
+        .then((res) => {
+            this.notificar(res.status+' - Impressoras atualizadas');
+            console.log(res.status+' - Impressoras atualizadas');
+        });
     }
 }

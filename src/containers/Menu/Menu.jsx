@@ -5,9 +5,6 @@ import STRING_CONSTANTS from '../../data/constants';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav'
 class Menu extends Component {
-  constructor(props) {
-    super(props);
-  }
   _handleGeral(e) {
     if (e.type === 'click') {
       this.props.mudarTela(STRING_CONSTANTS.GERAL);
@@ -25,6 +22,12 @@ class Menu extends Component {
       this.props.mudarTela(STRING_CONSTANTS.OFFLINE);
     }
   }
+  _handleAtualizar(e) {
+    if (e.type === 'click') {
+      this.props.atualizarImpressoras();
+    }
+  }
+
   render() {
     return (
 
@@ -36,7 +39,7 @@ class Menu extends Component {
             <Nav.Link href="#" onClick={this._handleGeral.bind(this)}>Geral</Nav.Link>
             <Nav.Link href="#" onClick={this._handleImpressoras.bind(this)}>Lista</Nav.Link>
             <Nav.Link href="#" onClick={this._handleImpressorasOffline.bind(this)}>Offlines</Nav.Link>
-            <Nav.Link href="#">Atualizar</Nav.Link>
+            <Nav.Link href="#" onClick={this._handleAtualizar.bind(this)}>Atualizar</Nav.Link>
             <Nav.Link href="#">PrintWayy</Nav.Link>
             <Nav.Link href="#">Monitoramento</Nav.Link>
           </Nav>
