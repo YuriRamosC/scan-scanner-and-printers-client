@@ -18,7 +18,7 @@
     "react-bootstrap": "^1.4.0",
     "react-bootstrap-icons": "^1.1.0",
     "react-dom": "^17.0.1",
-    "react-notifications": "^1.7.2",
+    "react-notifications-component": "^3.0.3",
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4"
   },

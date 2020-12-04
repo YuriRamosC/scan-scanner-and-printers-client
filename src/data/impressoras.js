@@ -38,14 +38,13 @@ export default class Impressoras {
             .then(res => this.notificar('Impressoras Offline'));
     }
     atualizarImpressoras(){
-        api.get('impressoras-printwayy')
+        return api.get('impressoras-printwayy')
         .catch(err => {
             console.log('Erro:');
             console.log(err.response);
         })
         .then((res) => {
             this.notificar(res.status+' - Impressoras atualizadas');
-            console.log(res.status+' - Impressoras atualizadas');
         });
     }
 }

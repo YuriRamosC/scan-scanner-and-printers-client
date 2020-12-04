@@ -7,6 +7,7 @@ import Popover from 'react-bootstrap/Popover';
 class Lista extends Component {
     constructor(props) {
         super(props);
+        this._handleEditarStatus = this._handleEditarStatus.bind(this)
         this._novasImpressoras = this._novasImpressoras.bind(this);
         this.state = { impressoras: [], titulo: '' };
     }
@@ -16,6 +17,11 @@ class Lista extends Component {
 
     componentWillUnmount() {
         this.props.impressoras.desinscrever(this._novasImpressoras);
+    }
+    _handleEditarStatus(e) {
+        if (e.type === 'click') {
+            console.dir(e.currentTarget.id)
+        }
     }
     _novasImpressoras(impressoras, titulo) {
         this.setState({ ...this.state, impressoras: impressoras, titulo: titulo });
@@ -27,8 +33,8 @@ class Lista extends Component {
             <Popover id="popover-basic">
                 <Popover.Title as="h3">Dados</Popover.Title>
                 <Popover.Content>
-                {`` + impressora.scan_status + ` - ` + impressora.scan_observation}
-          </Popover.Content>
+                    {`` + impressora.scan_status + ` - ` + impressora.scan_observation}
+                </Popover.Content>
             </Popover>
         )
     };
@@ -48,14 +54,13 @@ class Lista extends Component {
                                     <th className='printwayy-color'>Ponto</th>
                                     <th className='printwayy-color'>IP da Máquina</th>
                                     <th className='printwayy-color'>Ultima Comunicação</th>
-                                    <th className='printwayy-color'>Alterar Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {this.state.impressoras.map((impressora, index) => {
                                     return (
-                                        <OverlayTrigger trigger='hover' placement='bottom' overlay={this.popover(impressora)}>
-                                            <tr className={`status_` + impressora.scan_status} id={impressora.id}>
+                                        <OverlayTrigger trigger={['hover', 'focus']} placement='bottom' overlay={this.popover(impressora)}>
+                                            <tr onClick={this._handleEditarStatus}  className={`status_` + impressora.scan_status} id={impressora.id_way}>
                                                 <td>{impressora.customer_name}</td>
                                                 <td>{impressora.manufacturer}</td>
                                                 <td>{impressora.model}</td>
@@ -63,7 +68,6 @@ class Lista extends Component {
                                                 <td>{impressora.installationPoint}</td>
                                                 <td>{impressora.ipAddress}</td>
                                                 <td>{impressora.lastCommunication}</td>
-                                                <td>Editar</td>
                                             </tr>
                                         </OverlayTrigger>
                                     )

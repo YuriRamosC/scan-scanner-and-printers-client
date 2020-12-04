@@ -7,6 +7,9 @@ import Lista from './components/Lista'
 import TelaInicial from './components/TelaInicial'
 import Impressoras from './data/impressoras';
 import MyFooter from './containers/MyFooter'
+import ReactNotification from 'react-notifications-component'
+import { store } from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css'
 
 class App extends Component {
   constructor() {
@@ -31,11 +34,24 @@ class App extends Component {
     }
   }
  showMessage(message) {
-   console.log(message);
+  store.addNotification({
+    title: "Impressoras Atualizadas!",
+    message: "As impressoras do sistema foram atualizadas com sucesso !",
+    type: "success",
+    insert: "top",
+    container: "top-right",
+    animationIn: ["animate__animated", "animate__fadeIn"],
+    animationOut: ["animate__animated", "animate__fadeOut"],
+    dismiss: {
+      duration: 5000,
+      onScreen: false
+    }
+  });
   }
   render() {
     return (
       <section>
+        <ReactNotification />
         <Menu consumirImpressoras={this.impressoras.consumirImpressoras.bind(this.impressoras)}
           consumirImpressorasOffline={this.impressoras.consumirImpressorasOffline.bind(this.impressoras)} 
           atualizarImpressoras={this.impressoras.atualizarImpressoras.bind(this.impressoras)}

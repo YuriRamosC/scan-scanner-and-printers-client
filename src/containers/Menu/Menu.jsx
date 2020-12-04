@@ -23,8 +23,12 @@ class Menu extends Component {
     }
   }
   _handleAtualizar(e) {
+    var contexto = this;
     if (e.type === 'click') {
-      this.props.atualizarImpressoras();
+      Promise.resolve(this.props.atualizarImpressoras()).then((res)=> {
+        console.log(contexto.props.showMessage('pipico'));
+      });
+      
     }
   }
   render() {
