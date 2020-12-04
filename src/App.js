@@ -31,9 +31,7 @@ class App extends Component {
     }
   }
  showMessage(message) {
-    if(message === STRING_CONSTANTS.UPDATED) {
-      console.log('As impressoras foram atualizadas!');
-    }
+   console.log(message);
   }
   render() {
     return (

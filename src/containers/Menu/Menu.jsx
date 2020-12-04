@@ -27,7 +27,6 @@ class Menu extends Component {
       this.props.atualizarImpressoras();
     }
   }
-
   render() {
     return (
 
