@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
+import Modal from 'react-bootstrap/Modal';
+
 class Form extends Component {
     constructor(props) {
         super(props);
-        this.impressora = this.props.impressora
-        this.state = {...this.state, impressora: impressora}
+        console.log('renderizou');
+        this.state = { ...this.state, impressora: this.props.impressora }
     }
     render() {
         return (
-            <section>
-                <div class="container">
-                    <h2>Alterar Impressora )</h2>
-                    <h4>{this.impressora.customer_name}</h4>
+            <Modal>
+                <Modal.Header>{this.state.impressora.customer_name}</Modal.Header>
+                <Modal.Body>
                     <form action="/impressoras-offline" method="post">
                         <div class="row">
                             <div class="form-group col">
@@ -27,12 +28,15 @@ class Form extends Component {
                         </div>
                         <div class="form-group">
                             <label for="descricao">Observações:</label>
-                            <textarea cols="20" rows="10" id="scan_observation" name="scan_observation" placeholder="Adicione observações..." class="form-control">${data.impressora.scan_observation}</textarea>
+                            <textarea cols="20" rows="10" id="scan_observation" name="scan_observation" placeholder="Adicione observações..." class="form-control">${this.state.impressora.scan_observation}</textarea>
                         </div>
                         <input type="submit" value="Salvar" class="btn btn-primary" />
                     </form>
-                </div>
-            </section >
+                </Modal.Body>
+                <Modal.Footer>
+
+                </Modal.Footer>
+            </Modal>
         );
     }
 }

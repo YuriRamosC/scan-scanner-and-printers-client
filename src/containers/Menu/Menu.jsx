@@ -26,7 +26,7 @@ class Menu extends Component {
     var contexto = this;
     if (e.type === 'click') {
       Promise.resolve(this.props.atualizarImpressoras()).then((res)=> {
-        console.log(contexto.props.showMessage('pipico'));
+        contexto.props.showMessage('Impressoras atualizadas com sucesso!');
       });
       
     }

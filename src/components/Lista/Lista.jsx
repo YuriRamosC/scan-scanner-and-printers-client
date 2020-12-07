@@ -4,6 +4,7 @@ import Overlay from 'react-bootstrap/Overlay';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import Popover from 'react-bootstrap/Popover';
+import Form from '../../containers/Form'
 class Lista extends Component {
     constructor(props) {
         super(props);
@@ -18,9 +19,11 @@ class Lista extends Component {
     componentWillUnmount() {
         this.props.impressoras.desinscrever(this._novasImpressoras);
     }
-    _handleEditarStatus(e) {
+    _handleEditarStatus(e, impressora) {
         if (e.type === 'click') {
-            console.dir(e.currentTarget.id)
+           //this.props.showMessage({impressora.customer_name});
+           console.log(impressora);
+           return <Form impressora ={impressora}/>
         }
     }
     _novasImpressoras(impressoras, titulo) {
@@ -60,7 +63,7 @@ class Lista extends Component {
                                 {this.state.impressoras.map((impressora, index) => {
                                     return (
                                         <OverlayTrigger trigger={['hover', 'focus']} placement='bottom' overlay={this.popover(impressora)}>
-                                            <tr onClick={this._handleEditarStatus}  className={`status_` + impressora.scan_status} id={impressora.id_way}>
+                                            <tr onClick={(e) => this._handleEditarStatus(e, impressora)}  className={`status_` + impressora.scan_status} id={impressora.id_way}>
                                                 <td>{impressora.customer_name}</td>
                                                 <td>{impressora.manufacturer}</td>
                                                 <td>{impressora.model}</td>

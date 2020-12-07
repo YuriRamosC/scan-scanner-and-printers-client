@@ -10,55 +10,68 @@ import MyFooter from './containers/MyFooter'
 import ReactNotification from 'react-notifications-component'
 import { store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css'
+import { Slide } from "react-awesome-reveal";
+
 
 class App extends Component {
   constructor() {
     super();
     this.impressoras = new Impressoras();
-    this.state = {tela: STRING_CONSTANTS.GERAL};
+    this.state = { tela: STRING_CONSTANTS.GERAL };
   }
   mudarTela(tela) {
-    this.setState({...this.state, tela: tela});
+    this.setState({ ...this.state, tela: tela });
     console.log(this.state);
   }
 
-  renderizarTela(){
-    if(this.state.tela === STRING_CONSTANTS.LISTA) {
-      return <Lista impressoras = {this.impressoras}/>
+  renderizarTela() {
+    if (this.state.tela === STRING_CONSTANTS.LISTA) {
+      return (
+        <Slide direction='right' triggerOnce={false} cascade>
+          <Lista impressoras={this.impressoras} showMessage={this.showMessage.bind(this)} />
+          </Slide>
+      )
     }
     else if (this.state.tela === STRING_CONSTANTS.OFFLINE) {
-      return <Lista impressoras = {this.impressoras}/>
+      return (
+        <Slide direction='left' triggerOnce={false} cascade>
+          <Lista impressoras={this.impressoras} showMessage={this.showMessage.bind(this)} />
+          </Slide>)
     }
-    else if(this.state.tela === STRING_CONSTANTS.GERAL){
-      return <TelaInicial />
+    else if (this.state.tela === STRING_CONSTANTS.GERAL) {
+      return (
+        <Slide direction='right' triggerOnce={false} cascade>
+          <TelaInicial />
+          </Slide>
+        )
     }
   }
- showMessage(message) {
-  store.addNotification({
-    title: "Impressoras Atualizadas!",
-    message: "As impressoras do sistema foram atualizadas com sucesso !",
-    type: "success",
-    insert: "top",
-    container: "top-right",
-    animationIn: ["animate__animated", "animate__fadeIn"],
-    animationOut: ["animate__animated", "animate__fadeOut"],
-    dismiss: {
-      duration: 5000,
-      onScreen: false
-    }
-  });
+  showMessage(message) {
+    store.addNotification({
+      title: 'Sucesso',
+      message: message,
+      type: "success",
+      insert: "top",
+      container: "top-right",
+      animationIn: ["animate__animated", "animate__fadeIn"],
+      animationOut: ["animate__animated", "animate__fadeOut"],
+      dismiss: {
+        duration: 5000,
+        onScreen: false
+      }
+    });
   }
   render() {
     return (
       <section>
         <ReactNotification />
         <Menu consumirImpressoras={this.impressoras.consumirImpressoras.bind(this.impressoras)}
-          consumirImpressorasOffline={this.impressoras.consumirImpressorasOffline.bind(this.impressoras)} 
+          consumirImpressorasOffline={this.impressoras.consumirImpressorasOffline.bind(this.impressoras)}
           atualizarImpressoras={this.impressoras.atualizarImpressoras.bind(this.impressoras)}
           mudarTela={this.mudarTela.bind(this)}
-          showMessage={this.showMessage.bind(this)}/>
+          showMessage={this.showMessage.bind(this)} />
         {this.renderizarTela()}
-        <MyFooter/>
+        <MyFooter />
       </section>
     )
   };
