@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Modal from 'react-bootstrap/Modal';
 
-class Form extends Component {
+class MyForm extends Component {
     constructor(props) {
         super(props);
         console.log('renderizou');
@@ -9,7 +9,7 @@ class Form extends Component {
     }
     render() {
         return (
-            <Modal>
+            <Modal show={this.state.open}>
                 <Modal.Header>{this.state.impressora.customer_name}</Modal.Header>
                 <Modal.Body>
                     <form action="/impressoras-offline" method="post">
@@ -41,4 +41,4 @@ class Form extends Component {
     }
 }
 
-export default Form;
+export default MyForm;

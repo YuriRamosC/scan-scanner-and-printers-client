@@ -44,7 +44,7 @@ export default class Impressoras {
             console.log(err.response);
         })
         .then((res) => {
-            this.notificar(res.status+' - Impressoras atualizadas');
+            this.notificar('Impressoras atualizadas');
         });
     }
 }

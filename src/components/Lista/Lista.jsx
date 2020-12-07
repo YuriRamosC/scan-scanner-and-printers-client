@@ -4,7 +4,7 @@ import Overlay from 'react-bootstrap/Overlay';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import Popover from 'react-bootstrap/Popover';
-import Form from '../../containers/Form'
+import MyForm from '../../containers/MyForm'
 class Lista extends Component {
     constructor(props) {
         super(props);
@@ -22,8 +22,7 @@ class Lista extends Component {
     _handleEditarStatus(e, impressora) {
         if (e.type === 'click') {
            //this.props.showMessage({impressora.customer_name});
-           console.log(impressora);
-           return <Form impressora ={impressora}/>
+           return <MyForm impressora ={impressora}/>
         }
     }
     _novasImpressoras(impressoras, titulo) {
