@@ -11,6 +11,12 @@ class MyForm extends Component {
         console.log('clicou');
         this.setState({ showHide: !this.state.showHide })
     }
+    handleModalSave(){
+        console.log('salvou');
+        console.log()
+        this.handleModalShowHide();
+
+    }
     render() {
         return (
             <>
@@ -23,7 +29,7 @@ class MyForm extends Component {
                         <form action="#" method="post">
                             <div class="row">
                                 <div class="form-group col">
-                                    <select value={this.state.impressora.scan_status} class="form-control" id="scan_status" name="scan_status" placeholder="Selecione o Status">
+                                    <select value={this.state.impressora.scan_status} onChange={this.selectedChange} class="form-control" id="scan_status" name="scan_status" placeholder="Selecione o Status">
                                         <option value=''>Nenhum</option>
                                         <option value='andre'>André</option>cantCheck
                                         <option value='devilPrinter'>Impossível!!</option>
