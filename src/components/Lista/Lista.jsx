@@ -8,7 +8,6 @@ import MyForm from '../../containers/MyForm'
 class Lista extends Component {
     constructor(props) {
         super(props);
-        this._handleEditarStatus = this._handleEditarStatus.bind(this)
         this._novasImpressoras = this._novasImpressoras.bind(this);
         this.state = { impressoras: [], titulo: '' };
     }
@@ -18,12 +17,6 @@ class Lista extends Component {
 
     componentWillUnmount() {
         this.props.impressoras.desinscrever(this._novasImpressoras);
-    }
-    _handleEditarStatus(e, impressora) {
-        if (e.type === 'click') {
-           //this.props.showMessage({impressora.customer_name});
-           return <MyForm impressora ={impressora}/>
-        }
     }
     _novasImpressoras(impressoras, titulo) {
         this.setState({ ...this.state, impressoras: impressoras, titulo: titulo });
@@ -56,13 +49,14 @@ class Lista extends Component {
                                     <th className='printwayy-color'>Ponto</th>
                                     <th className='printwayy-color'>IP da Máquina</th>
                                     <th className='printwayy-color'>Ultima Comunicação</th>
+                                    <th className='printwayy-clor'>Alterar</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {this.state.impressoras.map((impressora, index) => {
                                     return (
                                         <OverlayTrigger trigger={['hover', 'focus']} placement='bottom' overlay={this.popover(impressora)}>
-                                            <tr onClick={(e) => this._handleEditarStatus(e, impressora)}  className={`status_` + impressora.scan_status} id={impressora.id_way}>
+                                            <tr   className={`status_` + impressora.scan_status} id={impressora.id_way}>
                                                 <td>{impressora.customer_name}</td>
                                                 <td>{impressora.manufacturer}</td>
                                                 <td>{impressora.model}</td>
@@ -70,6 +64,7 @@ class Lista extends Component {
                                                 <td>{impressora.installationPoint}</td>
                                                 <td>{impressora.ipAddress}</td>
                                                 <td>{impressora.lastCommunication}</td>
+                                                <td><MyForm impressora={impressora}></MyForm></td>
                                             </tr>
                                         </OverlayTrigger>
                                     )
