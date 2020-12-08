@@ -50,15 +50,15 @@ class MyForm extends Component {
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="descricao">Observações:</label>
+                            <div className="form-group">
+                                <label>Observações:</label>
                                 <textarea cols="20" rows="10" id="scan_observation" name="scan_observation" placeholder="Adicione observações..." class="form-control" onChange={this.textChange.bind(this)} defaultValue={this.state.impressora.scan_observation}></textarea>
                             </div>
                         </form>
                     </Modal.Body>
                     <Modal.Footer>
-                        <input type='submit' value='Cancelar' class='btn btn-danger' onClick={() => this.handleModalShowHide()} />
-                        <input type="submit" value="Salvar" class="btn btn-success" onClick={() => this.handleModalSave()} />
+                        <input type='submit' value='Cancelar' className='btn btn-danger' onClick={() => this.handleModalShowHide()} />
+                        <input type="submit" value="Salvar" className="btn btn-success" onClick={() => this.handleModalSave()} />
                     </Modal.Footer>
                 </Modal>
             </>

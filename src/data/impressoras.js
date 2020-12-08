@@ -48,9 +48,6 @@ export default class Impressoras {
     }
 
     editarObservacoes(id_way, scan_status, scan_observation) {
-        console.log(id_way);
-        console.log(scan_status);
-        console.log(scan_observation);
         return api.post('api-impressoras-offline', {id_way: id_way, scan_status: scan_status, scan_observation: scan_observation})
         .catch(err=>{
             console.log('Erro:');

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import "./estilo.css";
-import Overlay from 'react-bootstrap/Overlay';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Tooltip from 'react-bootstrap/Tooltip';
 import Popover from 'react-bootstrap/Popover';
 import MyForm from '../../containers/MyForm'
 class Lista extends Component {
@@ -25,9 +23,7 @@ class Lista extends Component {
         else {
             this.setState({ ...this.state, impressoras: impressoras});
         }
-        console.log(titulo);
     }
-
     popover(impressora) {
         return (
             <Popover id="popover-basic">

@@ -21,7 +21,6 @@ class App extends Component {
   }
   mudarTela(tela) {
     this.setState({ ...this.state, tela: tela });
-    console.log(this.state);
   }
 
   renderizarTela() {
