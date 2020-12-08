@@ -19,7 +19,12 @@ class Lista extends Component {
         this.props.impressoras.desinscrever(this._novasImpressoras);
     }
     _novasImpressoras(impressoras, titulo) {
+        if(titulo){
         this.setState({ ...this.state, impressoras: impressoras, titulo: titulo });
+        }
+        else {
+            this.setState({ ...this.state, impressoras: impressoras});
+        }
         console.log(titulo);
     }
 
@@ -64,7 +69,7 @@ class Lista extends Component {
                                                 <td>{impressora.installationPoint}</td>
                                                 <td>{impressora.ipAddress}</td>
                                                 <td>{impressora.lastCommunication}</td>
-                                                <td><MyForm impressora={impressora} helper={this.props.impressoras}></MyForm></td>
+                                                <td><MyForm impressora={impressora} helper={this.props.impressoras} showMessage={this.props.showMessage}></MyForm></td>
                                             </tr>
                                         </OverlayTrigger>
                                     )

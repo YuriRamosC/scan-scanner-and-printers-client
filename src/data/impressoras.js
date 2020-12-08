@@ -8,15 +8,14 @@ export default class Impressoras {
 
     inscrever(func) {
         this._observers.push(func);
-        console.log('inscreveu');
     }
     notificar(titulo) {
+        console.log('notificar ativado');
         this._observers.forEach(func => func(this.impressoras, titulo));
     }
 
     desinscrever(func) {
         this._observers = this._observers.filter(f => f !== func);
-        console.log('desinscreveu');
     }
 
     consumirImpressoras() {
@@ -44,7 +43,7 @@ export default class Impressoras {
             console.log(err.response);
         })
         .then((res) => {
-            this.notificar('Impressoras atualizadas');
+            this.notificar('');
         });
     }
 
@@ -52,13 +51,14 @@ export default class Impressoras {
         console.log(id_way);
         console.log(scan_status);
         console.log(scan_observation);
-        return api.post('api-impressoras-offline', {id_way, scan_status, scan_observation})
+        return api.post('api-impressoras-offline', {id_way: id_way, scan_status: scan_status, scan_observation: scan_observation})
         .catch(err=>{
             console.log('Erro:');
             console.log(err);
         })
         .then((res) =>{
-            this.notificar('Impressoras');
+            this.notificar('');
+            return res;
         })
     }
 }

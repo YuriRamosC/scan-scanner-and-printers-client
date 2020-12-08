@@ -13,8 +13,12 @@ class MyForm extends Component {
         this.setState({impressora: this.props.impressora, showHide: !this.state.showHide })
     }
     handleModalSave(){
-        this.props.helper.editarObservacoes(this.state.impressora.id_way, this.scan_status, this.scan_observation);
-        this.handleModalShowHide();
+        Promise.resolve(this.props.helper.editarObservacoes(this.state.impressora.id_way, this.scan_status, this.scan_observation))
+        .then((res) =>{
+            this.handleModalShowHide();
+            this.props.showMessage(this.props.impressora.serialNumber+' atualizada ...');
+            this.props.helper.notificar('');
+        });
     }
     selectedChange(e) {
         this.scan_status = e.target.value;
