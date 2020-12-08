@@ -29,21 +29,21 @@ class App extends Component {
       return (
         <Slide direction='right' triggerOnce={false} cascade>
           <Lista impressoras={this.impressoras} showMessage={this.showMessage.bind(this)} />
-          </Slide>
+        </Slide>
       )
     }
     else if (this.state.tela === STRING_CONSTANTS.OFFLINE) {
       return (
         <Slide direction='left' triggerOnce={false} cascade>
           <Lista impressoras={this.impressoras} showMessage={this.showMessage.bind(this)} />
-          </Slide>)
+        </Slide>)
     }
     else if (this.state.tela === STRING_CONSTANTS.GERAL) {
       return (
         <Slide direction='right' triggerOnce={false} cascade>
           <TelaInicial />
-          </Slide>
-        )
+        </Slide>
+      )
     }
   }
   showMessage(message) {

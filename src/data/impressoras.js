@@ -47,4 +47,18 @@ export default class Impressoras {
             this.notificar('Impressoras atualizadas');
         });
     }
+
+    editarObservacoes(id_way, scan_status, scan_observation) {
+        console.log(id_way);
+        console.log(scan_status);
+        console.log(scan_observation);
+        return api.post('api-impressoras-offline', {id_way, scan_status, scan_observation})
+        .catch(err=>{
+            console.log('Erro:');
+            console.log(err);
+        })
+        .then((res) =>{
+            this.notificar('Impressoras');
+        })
+    }
 }

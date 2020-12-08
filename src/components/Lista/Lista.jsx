@@ -55,7 +55,7 @@ class Lista extends Component {
                             <tbody>
                                 {this.state.impressoras.map((impressora, index) => {
                                     return (
-                                        <OverlayTrigger trigger={['hover', 'focus']} placement='bottom' overlay={this.popover(impressora)}>
+                                        <OverlayTrigger trigger={['hover', 'focus', 'click']} placement='bottom-start' overlay={this.popover(impressora)}>
                                             <tr   className={`status_` + impressora.scan_status} id={impressora.id_way}>
                                                 <td>{impressora.customer_name}</td>
                                                 <td>{impressora.manufacturer}</td>
@@ -64,7 +64,7 @@ class Lista extends Component {
                                                 <td>{impressora.installationPoint}</td>
                                                 <td>{impressora.ipAddress}</td>
                                                 <td>{impressora.lastCommunication}</td>
-                                                <td><MyForm impressora={impressora}></MyForm></td>
+                                                <td><MyForm impressora={impressora} helper={this.props.impressoras}></MyForm></td>
                                             </tr>
                                         </OverlayTrigger>
                                     )

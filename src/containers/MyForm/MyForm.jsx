@@ -5,17 +5,22 @@ import Button from 'react-bootstrap/Button';
 class MyForm extends Component {
     constructor(props) {
         super(props);
+        this.scan_status = '';
+        this.scan_observation = '';
         this.state = { ...this.state, impressora: this.props.impressora, showHide: false }
     }
     handleModalShowHide() {
-        console.log('clicou');
-        this.setState({ showHide: !this.state.showHide })
+        this.setState({impressora: this.props.impressora, showHide: !this.state.showHide })
     }
     handleModalSave(){
-        console.log('salvou');
-        console.log()
+        this.props.helper.editarObservacoes(this.state.impressora.id_way, this.scan_status, this.scan_observation);
         this.handleModalShowHide();
-
+    }
+    selectedChange(e) {
+        this.scan_status = e.target.value;
+    }
+    textChange(e) {
+        this.scan_observation = e.target.value;
     }
     render() {
         return (
@@ -29,7 +34,7 @@ class MyForm extends Component {
                         <form action="#" method="post">
                             <div class="row">
                                 <div class="form-group col">
-                                    <select value={this.state.impressora.scan_status} onChange={this.selectedChange} class="form-control" id="scan_status" name="scan_status" placeholder="Selecione o Status">
+                                    <select defaultValue={this.state.impressora.scan_status} onChange={this.selectedChange.bind(this)} class="form-control" id="scan_status" name="scan_status" placeholder="Selecione o Status">
                                         <option value=''>Nenhum</option>
                                         <option value='andre'>André</option>cantCheck
                                         <option value='devilPrinter'>Impossível!!</option>
@@ -43,13 +48,13 @@ class MyForm extends Component {
                             </div>
                             <div class="form-group">
                                 <label for="descricao">Observações:</label>
-                                <textarea cols="20" rows="10" id="scan_observation" name="scan_observation" placeholder="Adicione observações..." class="form-control" value={this.state.impressora.scan_observation}></textarea>
+                                <textarea cols="20" rows="10" id="scan_observation" name="scan_observation" placeholder="Adicione observações..." class="form-control" onChange={this.textChange.bind(this)} defaultValue={this.state.impressora.scan_observation}></textarea>
                             </div>
                         </form>
                     </Modal.Body>
                     <Modal.Footer>
                         <input type='submit' value='Cancelar' class='btn btn-danger' onClick={() => this.handleModalShowHide()} />
-                        <input type="submit" value="Salvar" class="btn btn-success" onClick={() => this.handleModalShowHide()} />
+                        <input type="submit" value="Salvar" class="btn btn-success" onClick={() => this.handleModalSave()} />
                     </Modal.Footer>
                 </Modal>
             </>
