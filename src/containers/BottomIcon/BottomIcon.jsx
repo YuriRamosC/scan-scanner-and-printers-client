@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import './estilos.css'
+import './estilos.css';
+import LogModal from '../LogModal';
 class BottomIcon extends Component {
     state = {  }
+
     render() { 
         return (
             <div>
-                <a className='bottom-icon-whatsapp' href="https://api.whatsapp.com/send?l=pt_br&amp;phone=554185357065"></a>
+                <LogModal impressoras={this.props.impressoras}/>
             </div>
         );
     }

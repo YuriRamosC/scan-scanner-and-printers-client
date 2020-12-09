@@ -70,7 +70,7 @@ class App extends Component {
           mudarTela={this.mudarTela.bind(this)}
           showMessage={this.showMessage.bind(this)} />
         {this.renderizarTela()}
-        <MyFooter />
+        <MyFooter impressoras={this.impressoras}/>
       </section>
     )
   };

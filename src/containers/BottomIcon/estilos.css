@@ -12,3 +12,23 @@
     cursor: pointer;
     background-image: url(../../assets/img/icone-whatsapp-fixo.png);
 }
+
+.bottom-icon-log {
+    width: 40px;
+    height: 40px;
+    background-color: #838d83;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    border-radius: 50%;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+    background-image: url(../../assets/img/log-icon.svg);
+}
+
+.log-body {
+    font-size: 0.9rem;
+    white-space: pre-line;
+}

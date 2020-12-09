@@ -25,7 +25,7 @@ class MyFooter extends Component {
                         </Card>
                     </CardDeck>
                 </footer>
-                <BottomIcon />
+                <BottomIcon impressoras={this.props.impressoras}/>
             </section>
         );
     }
