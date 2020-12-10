@@ -1,0 +1,18 @@
+.negrito {
+    font-weight: bold;
+}
+
+.flex {
+    display: flex;
+}
+
+.samsung4070 {
+    background-image: url('https://www.santarosapaper.com.br/media/wysiwyg/impressoras/Samsung_SL-M4070FR.jpg');
+    flex-shrink: 0;
+    background-size: cover;
+    background-position: center center;
+    width: 25%;
+    height: 17rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}

@@ -3,6 +3,7 @@ import Slider from '../../containers/Slider';
 import Container from 'react-bootstrap/Container'
 import './estilos.css';
 import Cards from '../../containers/Cards';
+import MediaList from '../../containers/MediaList';
 class TelaInicial extends Component {
     state = {}
     render() {
@@ -13,6 +14,7 @@ class TelaInicial extends Component {
                 </Container>
                 <Container>
                     <Cards />
+                    <MediaList/>
                 </Container>
             </section>
         );
