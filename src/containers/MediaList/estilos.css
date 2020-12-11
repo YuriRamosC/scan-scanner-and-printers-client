@@ -1,7 +1,7 @@
 .negrito {
     font-weight: bold;
 }
-
+/*Colocar isso tudo num @media, para ele em tela cheia e colocar uma opção para tamanho de mobile   */
 .flex {
     display: flex;
 }
