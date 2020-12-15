@@ -25,15 +25,14 @@ class Menu extends Component {
   _handleAtualizar(e) {
     var contexto = this;
     if (e.type === 'click') {
-      Promise.resolve(this.props.atualizarImpressoras()).then((res)=> {
+      Promise.resolve(this.props.atualizarImpressoras()).then((res) => {
         contexto.props.showMessage('Impressoras atualizadas com sucesso!');
       });
-      
+
     }
   }
   render() {
     return (
-
       <Navbar collapseOnSelect expand="lg" className="menu" variant='dark' text='light' sticky='top'>
         <Navbar.Brand href="#home">Scan Scanners and Printers</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
